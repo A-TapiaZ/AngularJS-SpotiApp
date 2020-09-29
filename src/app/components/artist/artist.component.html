@@ -1,0 +1,64 @@
+
+<app-loading *ngIf="loading"></app-loading>
+
+
+<div *ngIf="!loading" class="row">
+  <div class="col-2">
+    <img 
+      class="img-thumbnail img-circle"
+      [src]="artista.images|noimage" 
+      alt="imagen artista">
+  </div>
+ 
+  <div class="col">
+    <h3> {{artista.name}} </h3>
+    <p>
+      <a 
+        [href]="artista.external_urls.spotify" 
+        target="_blank">
+        Artist Page
+      </a>
+    </p>
+  </div>
+
+  <div class="col-4 text-right">
+    <button 
+      [routerLink]="['/search']" 
+      class="btn btn-outline-danger">
+      Return
+    </button>
+  </div>
+</div>
+
+<div class="row m-5">
+  <div class="col">
+
+    <table class="table text-center text-white">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Album</th>
+          <th>Cancion</th>
+          <th>Vista Previa</th>
+          <th></th>
+        </tr>
+      </thead>
+
+
+      <tbody *ngFor="let track of topTracks">
+        <tr>
+          <td>
+            <img [src]="track.album.images[2].url" alt="">
+          </td>
+          <td>{{track.album.name}}</td>
+          <td>{{track.name|lowercase}}</td>
+          <td>
+            <!-- <audio [src]="track.preview_url" controls></audio> -->
+            <iframe [src]="track.uri|domseguro:'https://open.spotify.com/embed/track/'" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
