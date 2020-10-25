@@ -21,6 +21,8 @@ export class CardsComponent implements OnInit {
     let artistaID;
     console.log(item);
 
+
+    // Esta condicion es porque algunas canciones tienen mas de un artista, por lo que solo buscaremos al primero que aparezca
     if (item.type==='artist') {
       artistaID=item.id;
     } else {
