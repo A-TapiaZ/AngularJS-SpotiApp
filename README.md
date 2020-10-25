@@ -2,6 +2,12 @@
 
 Una pequeña aplicacion que muestra los nuevos releases y un apartado de busqueda con la api de spotify.
 
+<img src="04-captures/1.png" height="300">
+<img src="04-captures/2.png" height="300">
+<img src="04-captures/3.png" height="300">
+
+
+
 ```
   "dependencies": {
     "@angular/animations": "~10.0.11",
